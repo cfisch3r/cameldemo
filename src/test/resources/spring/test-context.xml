@@ -14,7 +14,7 @@
 		<camel:route>
 			<camel:from uri="spring-event://default" />
 			<camel:filter>
-				<camel:method ref="camelTestBean" method="handle" />
+				<camel:method ref="eventFilter" method="handle" />
 				<camel:to uri="mock:result" />
 			</camel:filter>
 		</camel:route>
