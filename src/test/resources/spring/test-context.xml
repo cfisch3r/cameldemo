@@ -13,9 +13,11 @@
 	<camel:camelContext>
 		<camel:route>
 			<camel:from uri="spring-event://default" />
-			<camel:to uri="bean:de.agiledojo.cameldemo.CamelTestBean" />
-			<camel:to uri="mock:result" />
+			<camel:filter>
+				<camel:method ref="camelTestBean" method="handle" />
+				<camel:to uri="mock:result" />
+			</camel:filter>
 		</camel:route>
 	</camel:camelContext>
-	
+
 </beans>

@@ -1,11 +1,13 @@
 package de.agiledojo.cameldemo;
 
 import org.apache.camel.Handler;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CamelTestBean {
 
 	@Handler
-	public void handle(String body) {
-
+	public boolean handle(Object body) {
+		return (body instanceof LoginEvent);
 	}
 }
