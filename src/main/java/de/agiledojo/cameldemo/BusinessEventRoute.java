@@ -1,6 +1,7 @@
 package de.agiledojo.cameldemo;
 
 import org.apache.camel.builder.RouteBuilder;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * Routes Business events to destination
@@ -10,9 +11,12 @@ import org.apache.camel.builder.RouteBuilder;
  */
 public class BusinessEventRoute extends RouteBuilder {
 
+	private @Value("${businessevent.endpoint}")
+	String endpoint;
+
 	@Override
 	public void configure() throws Exception {
-		from("spring-event://default").filter(method(EventFilter.class)).to("mock:result");
+		from("spring-event://default").filter(method(EventFilter.class)).to(endpoint);
 	}
 
 }
