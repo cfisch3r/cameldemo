@@ -11,13 +11,7 @@
 	<context:component-scan base-package="de.agiledojo.cameldemo" />
 
 	<camel:camelContext>
-		<camel:route>
-			<camel:from uri="spring-event://default" />
-			<camel:filter>
-				<camel:method ref="eventFilter" method="handle" />
-				<camel:to uri="mock:result" />
-			</camel:filter>
-		</camel:route>
-	</camel:camelContext>
+		<camel:package>de.agiledojo.cameldemo</camel:package>
+ 	</camel:camelContext>
 
 </beans>
