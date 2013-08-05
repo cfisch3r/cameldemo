@@ -83,6 +83,11 @@
 				<artifactId>spring-data-mongodb</artifactId>
 				<version>1.2.1.RELEASE</version>
 			</dependency>
+			<dependency>
+				<groupId>com.googlecode.openpojo</groupId>
+				<artifactId>openpojo</artifactId>
+				<version>0.4.3</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -121,6 +126,11 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
 			<version>1.2.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.openpojo</groupId>
+			<artifactId>openpojo</artifactId>
+			<version>0.4.3</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -44,5 +44,6 @@ public class MongoEndpointIT {
 		template.sendBody(event);
 		List<LoginBusinessEvent> events = eventDB.findAll(LoginBusinessEvent.class);
 		assertThat(events.size()).isEqualTo(1);
+		assertThat(events.get(0)).isEqualTo(event);
 	}
 }
