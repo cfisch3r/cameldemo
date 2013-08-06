@@ -1,5 +1,6 @@
 package de.agiledojo.cameldemo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.bson.types.ObjectId;
@@ -16,7 +17,11 @@ import com.openpojo.business.annotation.BusinessKey;
  * 
  */
 @Document
-public class LoginBusinessEvent {
+public class LoginBusinessEvent implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private Long versionId = serialVersionUID;
 
 	@Id
 	private ObjectId id;

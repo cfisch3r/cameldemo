@@ -28,6 +28,9 @@ public class MongoEndpointIT {
 	@Autowired
 	protected MongoTemplate eventDB;
 
+	@Autowired
+	protected LoginBusinessEventRepository loginBusinessEventRepository;
+
 	@Before
 	public void setupCollection() {
 		if (eventDB.collectionExists(LoginBusinessEvent.class)) {
@@ -42,7 +45,9 @@ public class MongoEndpointIT {
 		final String userId = "sxhe";
 		LoginBusinessEvent event = new LoginBusinessEvent(userId, new Date());
 		template.sendBody(event);
-		List<LoginBusinessEvent> events = eventDB.findAll(LoginBusinessEvent.class);
+		// List<LoginBusinessEvent> events =
+		// eventDB.findAll(LoginBusinessEvent.class);
+		List<LoginBusinessEvent> events = loginBusinessEventRepository.findAll();
 		assertThat(events.size()).isEqualTo(1);
 		assertThat(events.get(0)).isEqualTo(event);
 	}
