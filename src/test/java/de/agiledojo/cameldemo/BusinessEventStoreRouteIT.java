@@ -2,7 +2,7 @@ package de.agiledojo.cameldemo;
 
 import static org.fest.assertions.Assertions.*;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.apache.camel.Produce;
@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/systemtest-context.xml")
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
-public class MongoEndpointIT {
+public class BusinessEventStoreRouteIT {
 
 	@Produce(uri = "direct:storeBusinessEvent")
 	protected ProducerTemplate template;
@@ -32,23 +32,19 @@ public class MongoEndpointIT {
 	protected LoginBusinessEventRepository loginBusinessEventRepository;
 
 	@Before
-	public void setupCollection() {
+	public void clearCollection() {
 		if (eventDB.collectionExists(LoginBusinessEvent.class)) {
 			eventDB.dropCollection(LoginBusinessEvent.class);
 		}
-
-		eventDB.createCollection(LoginBusinessEvent.class);
 	}
 
 	@Test
 	public void newEventShouldBeStoredInDatase() {
-		final String userId = "sxhe";
-		LoginBusinessEvent event = new LoginBusinessEvent(userId, new Date());
+		LoginBusinessEvent event = new LoginBusinessEvent("Dummy", Calendar.getInstance().getTime());
 		template.sendBody(event);
-		// List<LoginBusinessEvent> events =
-		// eventDB.findAll(LoginBusinessEvent.class);
 		List<LoginBusinessEvent> events = loginBusinessEventRepository.findAll();
 		assertThat(events.size()).isEqualTo(1);
 		assertThat(events.get(0)).isEqualTo(event);
 	}
+
 }
