@@ -12,8 +12,7 @@ public class BusinessEventStoreRoute extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("direct:storeBusinessEvent").to(
-				"mongodb:mongo?database=events&collection=loginBusinessEvent&operation=save");
+		from("direct:storeBusinessEvent").bean(BusinessEventStore.class);
 	}
 
 }
