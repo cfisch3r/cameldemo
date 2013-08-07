@@ -1,4 +1,4 @@
-package de.agiledojo.cameldemo;
+package de.agiledojo.cameldemo.businessevent;
 
 import java.io.Serializable;
 import java.util.Date;

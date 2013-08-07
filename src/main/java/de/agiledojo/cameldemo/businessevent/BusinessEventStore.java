@@ -1,4 +1,4 @@
-package de.agiledojo.cameldemo;
+package de.agiledojo.cameldemo.businessevent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

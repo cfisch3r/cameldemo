@@ -1,4 +1,4 @@
-package de.agiledojo.cameldemo;
+package de.agiledojo.cameldemo.businessevent;
 
 import static org.fest.assertions.Assertions.*;
 
@@ -16,6 +16,9 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import de.agiledojo.cameldemo.businessevent.LoginBusinessEvent;
+import de.agiledojo.cameldemo.businessevent.LoginBusinessEventRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/systemtest-context.xml")

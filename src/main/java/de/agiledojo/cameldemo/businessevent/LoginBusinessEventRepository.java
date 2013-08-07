@@ -1,4 +1,4 @@
-package de.agiledojo.cameldemo;
+package de.agiledojo.cameldemo.businessevent;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
