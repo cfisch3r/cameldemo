@@ -4,7 +4,7 @@
 	<groupId>de.agiledojo</groupId>
 	<artifactId>cameldemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>Camel Demo</name>
 	<description>demo project for camel integration</description>
 
