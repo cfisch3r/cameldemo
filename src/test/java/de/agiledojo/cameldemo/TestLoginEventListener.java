@@ -4,12 +4,12 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TestLoginEventListener implements ApplicationListener<LoginEvent> {
+public class TestLoginEventListener implements ApplicationListener<ApplicationBusinessEvent> {
 
-	LoginEvent latestEvent;
+	ApplicationBusinessEvent latestEvent;
 
 	@Override
-	public void onApplicationEvent(LoginEvent event) {
+	public void onApplicationEvent(ApplicationBusinessEvent event) {
 		latestEvent = event;
 	}
 
@@ -17,7 +17,7 @@ public class TestLoginEventListener implements ApplicationListener<LoginEvent> {
 		latestEvent = null;
 	}
 
-	public LoginEvent getLatestEvent() {
+	public ApplicationBusinessEvent getLatestEvent() {
 		return latestEvent;
 	}
 
