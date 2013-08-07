@@ -17,10 +17,10 @@ import de.agiledojo.cameldemo.businessevent.LoginBusinessEvent;
 public class LoginEventPublisherTest {
 
 	@Autowired
-	LoginEventPublisher sut;
+	ApplicationBusinessEventPublisher sut;
 
 	@Autowired
-	TestLoginEventListener eventListener;
+	TestApplicationBusinessEventListener eventListener;
 
 	@Test
 	public void onEventListenerIsCalledWhenEventIsPublished() throws InterruptedException {

@@ -7,13 +7,9 @@ import org.springframework.stereotype.Component;
 import de.agiledojo.cameldemo.businessevent.LoginBusinessEvent;
 
 @Component
-public class LoginEventPublisher implements ApplicationEventPublisherAware {
+public class ApplicationBusinessEventPublisher implements ApplicationEventPublisherAware {
 
 	ApplicationEventPublisher publisher;
-
-	public void fireLoginEvent() {
-		publisher.publishEvent(new LoginEvent(this));
-	}
 
 	@Override
 	public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {

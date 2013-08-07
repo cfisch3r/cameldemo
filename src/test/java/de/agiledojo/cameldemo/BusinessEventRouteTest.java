@@ -1,5 +1,7 @@
 package de.agiledojo.cameldemo;
 
+import java.util.Calendar;
+
 import org.apache.camel.EndpointInject;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.junit.Test;
@@ -10,24 +12,25 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import de.agiledojo.cameldemo.businessevent.LoginBusinessEvent;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/test-context.xml")
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class BusinessEventRouteTest {
 
 	@Autowired
-	LoginEventPublisher eventPublisher;
+	ApplicationBusinessEventPublisher eventPublisher;
 
 	@EndpointInject(uri = "mock:result")
 	protected MockEndpoint resultEndpoint;
 
 	@Test
 	public void testSendMatchingMessage() throws Exception {
-		eventPublisher.fireLoginEvent();
+		eventPublisher.fireBusinessEvent(new LoginBusinessEvent("dummy", Calendar.getInstance().getTime()));
 
 		resultEndpoint.expectedMessageCount(1);
 
 		resultEndpoint.assertIsSatisfied();
 	}
-
 }

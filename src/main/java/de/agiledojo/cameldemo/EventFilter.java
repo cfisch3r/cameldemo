@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class EventFilter {
 
 	public boolean handle(Object body) {
-		return (body instanceof LoginEvent);
+		return (body instanceof ApplicationBusinessEvent);
 	}
 }
