@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/test-context.xml")
-public class LoginEventPublisherIT {
+public class LoginEventPublisherTest {
 
 	@Autowired
 	LoginEventPublisher sut;
