@@ -15,15 +15,6 @@
 		<property name="locations" value="classpath:spring/test.properties" />
 	</bean>
 
-	<bean id="conversionService"
-		class="org.springframework.context.support.ConversionServiceFactoryBean">
-		<property name="converters">
-			<list>
-				<bean class="de.agiledojo.cameldemo.LongToDateConverter" />
-			</list>
-		</property>
-	</bean>
-
 	<context:component-scan base-package="de.agiledojo.cameldemo" />
 
 	<camel:camelContext>
