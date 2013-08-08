@@ -1,7 +1,5 @@
 package de.agiledojo.cameldemo;
 
-import java.util.Calendar;
-
 import org.apache.camel.EndpointInject;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.junit.Test;
@@ -27,7 +25,7 @@ public class BusinessEventRouteTest {
 
 	@Test
 	public void testSendMatchingMessage() throws Exception {
-		eventPublisher.fireBusinessEvent(new LoginBusinessEvent("dummy", Calendar.getInstance().getTime()));
+		eventPublisher.fireBusinessEvent(new LoginBusinessEvent("myChannel", "dummy"));
 
 		resultEndpoint.expectedMessageCount(1);
 

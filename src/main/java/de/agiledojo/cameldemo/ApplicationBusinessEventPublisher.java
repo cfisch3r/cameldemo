@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.stereotype.Component;
 
-import de.agiledojo.cameldemo.businessevent.LoginBusinessEvent;
+import de.agiledojo.cameldemo.businessevent.BusinessEvent;
 
 @Component
 public class ApplicationBusinessEventPublisher implements ApplicationEventPublisherAware {
@@ -16,7 +16,7 @@ public class ApplicationBusinessEventPublisher implements ApplicationEventPublis
 		publisher = applicationEventPublisher;
 	}
 
-	public void fireBusinessEvent(LoginBusinessEvent event) {
+	public void fireBusinessEvent(BusinessEvent event) {
 		ApplicationBusinessEvent applicationEvent = new ApplicationBusinessEvent(event, this);
 		publisher.publishEvent(applicationEvent);
 	}

@@ -2,7 +2,6 @@ package de.agiledojo.cameldemo.businessevent;
 
 import static org.fest.assertions.Assertions.*;
 
-import java.util.Calendar;
 import java.util.List;
 
 import org.apache.camel.Produce;
@@ -16,9 +15,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import de.agiledojo.cameldemo.businessevent.LoginBusinessEvent;
-import de.agiledojo.cameldemo.businessevent.LoginBusinessEventRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/systemtest-context.xml")
@@ -43,7 +39,7 @@ public class BusinessEventStoreRouteIT {
 
 	@Test
 	public void newEventShouldBeStoredInDatase() {
-		LoginBusinessEvent event = new LoginBusinessEvent("Dummy", Calendar.getInstance().getTime());
+		LoginBusinessEvent event = new LoginBusinessEvent("myChannel", "Dummy");
 		template.sendBody(event);
 		List<LoginBusinessEvent> events = loginBusinessEventRepository.findAll();
 		assertThat(events.size()).isEqualTo(1);
