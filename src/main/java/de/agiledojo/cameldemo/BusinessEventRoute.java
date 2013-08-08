@@ -16,7 +16,7 @@ public class BusinessEventRoute extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("spring-event://default").filter(method(EventFilter.class)).to(endpoint);
+		from("spring-event://default").filter(method(ApplicationBusinessEventFilter.class)).to(endpoint);
 	}
 
 }
