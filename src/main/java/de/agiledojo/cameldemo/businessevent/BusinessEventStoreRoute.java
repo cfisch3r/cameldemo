@@ -1,8 +1,6 @@
-package de.agiledojo.cameldemo;
+package de.agiledojo.cameldemo.businessevent;
 
 import org.apache.camel.builder.RouteBuilder;
-
-import de.agiledojo.cameldemo.businessevent.BusinessEventStore;
 
 /**
  * Routes Business events to mongo db store
