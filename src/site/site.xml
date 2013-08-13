@@ -1,0 +1,5 @@
+<project name="Camel Demo">
+  <body>
+  	<menu ref="reports" />
+  </body>
+</project>
