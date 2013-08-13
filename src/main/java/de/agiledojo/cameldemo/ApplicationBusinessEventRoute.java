@@ -4,14 +4,15 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
- * Routes Business events to destination
+ * Camel route, which listens for Spring application events, filters for
+ * ApplicationBusinessEvents and forwards to configured destination
  * 
  * @author cfisch3r
  * 
  */
-public class BusinessEventRoute extends RouteBuilder {
+public class ApplicationBusinessEventRoute extends RouteBuilder {
 
-	private @Value("${businessevent.endpoint}")
+	private @Value("${applicationbusinessevent.endpoint}")
 	String endpoint;
 
 	@Override

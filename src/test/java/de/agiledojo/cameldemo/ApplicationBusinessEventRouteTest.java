@@ -15,7 +15,7 @@ import de.agiledojo.cameldemo.businessevent.LoginBusinessEvent;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/test-context.xml")
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
-public class BusinessEventRouteTest {
+public class ApplicationBusinessEventRouteTest {
 
 	@Autowired
 	ApplicationBusinessEventPublisher eventPublisher;
@@ -24,7 +24,7 @@ public class BusinessEventRouteTest {
 	protected MockEndpoint resultEndpoint;
 
 	@Test
-	public void testSendMatchingMessage() throws Exception {
+	public void firingApplicationBusinessEventShouldBeDetectedAtRouteEndPoint() throws Exception {
 		eventPublisher.fireBusinessEvent(new LoginBusinessEvent("myChannel", "dummy"));
 
 		resultEndpoint.expectedMessageCount(1);
